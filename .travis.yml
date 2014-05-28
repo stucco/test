@@ -1,0 +1,16 @@
+language: java
+jdk:
+  - oraclejdk7
+  - openjdk7
+services:
+  - rabbitmq
+  - elasticsearch
+#  - logstash??
+before_install:
+  - ./install_etcd.sh
+  - git clone https://github.com/stucco/dev-setup.git
+  - ./dev-setup/scripts/install-titan.sh 0.4.4 localhost
+  - npm install -g forever #node is installed by default, but cannot specify the version in this file.
+  - ./dev-setup/scripts/setup-stucco.sh
+  - ./dev-setup/scripts/start-stucco.sh
+  - ./dev-setup/scripts/run-stucco-tests.sh
