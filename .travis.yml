@@ -7,6 +7,7 @@ services:
   - elasticsearch
 #  - logstash??
 before_install:
+  - sudo sed -i -e 's/^Defaults\tsecure_path.*$//' /etc/sudoers # remove secure path option
   - npm install -g forever #node is installed by default, but cannot specify the version in this file.
   - ./scripts/install_etcd.sh
   - sudo ./scripts/install-titan.sh 0.4.4 localhost
