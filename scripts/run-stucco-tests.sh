@@ -9,5 +9,5 @@ echo "Running stucco tests..."
 # TODO: mvn test
 
 # Test [document-service](https://github.com/stucco/document-service)
-cd /stucco/document-service
-NODE_ENV=vagrant npm test
+#cd /stucco/document-service
+#NODE_ENV=vagrant npm test
