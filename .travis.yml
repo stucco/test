@@ -20,3 +20,4 @@ before_script:
   - sudo ./scripts/start-stucco.sh
 script:
   - sudo ./scripts/run-stucco-tests.sh
+  - sudo ./scripts/test-db.sh
