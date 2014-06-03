@@ -16,6 +16,7 @@ install:
   - sudo ./scripts/install-titan.sh 0.4.4 localhost
 before_script:
   - sudo ./scripts/setup-stucco.sh
+  - sudo ./scripts/setup-config.sh
   - sudo ./scripts/start-stucco.sh
 script:
   - sudo ./scripts/run-stucco-tests.sh
