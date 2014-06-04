@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pwd
+
 VERSION=${1:-'0.4.1'}
 VERSION_STR="v${VERSION}-linux-amd64"
 
