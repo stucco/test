@@ -1,0 +1,153 @@
+default:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    login: guest
+    password: guest
+    vhost: /
+    queue: stucco
+    exchange: stucco
+    message_size_limit: 10485760
+  stucco:
+    document-service:
+      host: localhost
+      port: 8118
+      data:
+        dir: data
+      cluster: true
+      logs:
+        dir: logs
+        level: info
+  replayer-file:
+    collectors:
+#      -
+#        type: FILE
+#        source-name: argus
+#        source-URI: endogenous-data-uc1/argus.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: hone
+#        source-URI: endogenous-data-uc1/hone.csv
+#        content-type : text/csv
+      -
+        type: FILE
+        source-name: metasploit
+        source-URI: get-exogenous-data/data/metasploit.csv
+        content-type : text/csv
+#      -
+#        type: FILE
+#        source-name: cve
+#        source-URI: get-exogenous-data/data/allitems.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: get-exogenous-data/data/nvdcve-2.0-2002.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: get-exogenous-data/data/nvdcve-2.0-2003.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: get-exogenous-data/data/nvdcve-2.0-2004.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: get-exogenous-data/data/nvdcve-2.0-2005.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: get-exogenous-data/data/nvdcve-2.0-2007.xml
+#        content-type : text/xml
+      -
+        type: FILE
+        source-name: nvd
+        source-URI: get-exogenous-data/data/nvdcve-2.0-2013.xml
+        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: maxmind
+#        source-URI: get-exogenous-data/data/geo_data/GeoIPASNum2.csv
+#        content-type : text/csv
+#      -
+#        type: FILE
+#        source-name: maxmind
+#        source-URI: get-exogenous-data/data/geo_data/GeoIPCountryWhois.csv
+#        content-type : text/csv
+#      -
+#        type: FILE
+#        source-name: cpe
+#        source-URI: get-exogenous-data/data/cpe_v2.3.xml
+#        content-type : text/xml
+    outputLog : ./replayer.log
+    outputDir : ./data/Receive
+
+  replayer-web:
+    collectors:
+#      -
+#        type: FILEBYLINE
+#        source-name: argus
+#        source-URI: endogenous-data-uc1/argus.csv
+#        content-type : text/csv
+#      -
+#        type: FILEBYLINE
+#        source-name: hone
+#        source-URI: endogenous-data-uc1/hone.csv
+#        content-type : text/csv
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2002.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2003.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2004.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2005.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2007.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: nvd
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cve/nvdcve-2.0-2013.xml
+#        content-type : text/xml
+#      -
+#        type: FILE
+#        source-name: maxmind
+#        source-URI: http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip 
+#        content-type : application/octet-stream
+#      -
+#        type: FILE
+#        source-name: maxmind
+#        source-URI: http://geolite.maxmind.com/download/geoip/database/GeoIPCountryCSV.zip
+#        content-type : application/octet-stream
+#      -
+#        type: FILE
+#        source-name: cpe
+#        source-URI: http://static.nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml
+#        content-type : text/xml
+    outputLog : ./replayer.log
+    outputDir : ./data/Receive
+  
+vagrant:
+  rabbitmq:
+    host: localhost
