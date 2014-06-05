@@ -22,3 +22,6 @@ if [ -d ${DS_DIR} ]; then
 else
   echo 'The document-service repository is not available. Do a `git clone https://github.com/stucco/document-service.git` into the main stucco project directory and it will be available in the virtual machine, mounted under /stucco'
 fi
+
+echo 'waiting for stucco startup to finish...'
+sleep 5m
