@@ -18,6 +18,7 @@ before_script:
   - sudo ./scripts/setup-stucco.sh
   - sudo ./scripts/setup-config.sh
   - sudo ./scripts/start-stucco.sh
+  - sudo ./scripts/load-stucco-data.sh
 script:
   - sudo ./scripts/run-stucco-tests.sh
   - sudo ./scripts/test-db.sh
