@@ -15,7 +15,7 @@ make check
 sudo make install
 cd ..
 
-curl http://localhost:8182/graphs > graphs.out
+curl 'http://localhost:8182/graphs' > graphs.out
 # {"version":"2.4.0","name":"Rexster: A Graph Server","graphs":["graph"],"queryTime":20.218999,"upTime":"0[d]:00[h]:15[m]:11[s]"}
 jq '.' graphs.out
 if [ $? -ne 0 ]; then
@@ -36,7 +36,11 @@ jq '.' cve_vertex.out
 if [ ! $? ]; then
 	exit 1
 fi
-jq -e '(.results[0]._type == "vertex") and (.results[0].name == "CVE-2013-2028") and (.results[0].source == "Metasploit") and (.results[0].vertexType == "vulnerability")' cve_vertex.out
+jq -e '(.results | length == 1) and (.results[0]._type == "vertex")' cve_vertex.out
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+jq -e '(.results[0].name == "CVE-2013-2028") and (.results[0].vertexType == "vulnerability")' cve_vertex.out
 if [ ! $? ]; then
 	exit 1
 fi
