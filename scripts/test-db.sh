@@ -33,7 +33,7 @@ fi
 curl 'localhost:8182/graphs/graph/vertices?key=name&value=CVE-2013-2028' > cve_vertex.out
 # {"version":"2.4.0","results":[{"vertexType":"vulnerability","source":"Metasploit","name":"CVE-2013-2028","_id":220,"_type":"vertex"}],"totalSize":1,"queryTime":1.03591}
 jq '.' cve_vertex.out
-if [ ! $? ]; then
+if [ $? -ne 0 ]; then
 	exit 1
 fi
 jq -e '(.results | length == 1) and (.results[0]._type == "vertex")' cve_vertex.out
@@ -41,6 +41,6 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 jq -e '(.results[0].name == "CVE-2013-2028") and (.results[0].vertexType == "vulnerability")' cve_vertex.out
-if [ ! $? ]; then
+if [ $? -ne 0 ]; then
 	exit 1
 fi
