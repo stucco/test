@@ -2,7 +2,7 @@
 
 # Run this from within the Vagrant VM to run all tests sequentially.
 
-echo "Running stucco tests..."
+echo "Running stucco tests...skipped"
 
 # Test [rt](https://github.com/stucco/rt)
 # cd /stucco/rt

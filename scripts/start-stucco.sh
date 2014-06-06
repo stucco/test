@@ -24,4 +24,4 @@ else
 fi
 
 echo 'waiting for stucco startup to finish...'
-sleep 5m
+sleep 3m
