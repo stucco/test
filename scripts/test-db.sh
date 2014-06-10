@@ -15,6 +15,9 @@ make check
 sudo make install
 cd ..
 
+#check status for debugging
+rabbitmqctl list_queues
+
 curl 'http://localhost:8182/graphs' > graphs.out
 # {"version":"2.4.0","name":"Rexster: A Graph Server","graphs":["graph"],"queryTime":20.218999,"upTime":"0[d]:00[h]:15[m]:11[s]"}
 jq '.' graphs.out
