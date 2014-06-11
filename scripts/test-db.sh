@@ -20,6 +20,16 @@ rabbitmqctl status
 rabbitmqctl list_queues
 rabbitmqctl list_exchanges
 
+#dump a bunch of logs to console
+echo "!!! /var/log/doc-service-forever.log !!!"
+cat /var/log/doc-service-forever.log
+
+echo "!!! ls -al /stucco/rt/ !!!"
+ls -al /stucco/rt/
+
+echo "!!! /stucco/rt/stucco-rt.log !!!"
+cat /stucco/rt/stucco-rt.log
+
 curl 'http://localhost:8182/graphs' > graphs.out
 # {"version":"2.4.0","name":"Rexster: A Graph Server","graphs":["graph"],"queryTime":20.218999,"upTime":"0[d]:00[h]:15[m]:11[s]"}
 jq '.' graphs.out
