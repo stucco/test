@@ -19,7 +19,7 @@ for repo in $repos; do
 done
 
 # update conf file for exogenous data
-cp /home/travis/build/stucco/test/sites.yml $STUCCO_HOME/config-loader/config/sites.yml 
+cp /home/travis/build/stucco/test/sites.yml $STUCCO_HOME/get-exogenous-data/sites.yml 
 # Download exogenous data and put in data dir
 cd $STUCCO_HOME/get-exogenous-data
 npm start
