@@ -25,3 +25,6 @@ fi
 
 echo 'waiting for stucco startup to finish...'
 sleep 3m
+
+echo "!!! cat ${RT_DIR}/stucco-topology/nohup.out !!!"
+cat ${RT_DIR}/stucco-topology/nohup.out
