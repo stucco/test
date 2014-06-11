@@ -6,7 +6,7 @@ echo "Installing Stucco components..."
 
 sudo mkdir -p $STUCCO_HOME
 sudo chmod 4777 $STUCCO_HOME
-sudo chown vagrant:vagrant $STUCCO_HOME
+#sudo chown vagrant:vagrant $STUCCO_HOME
 
 
 ### Download the repositories
