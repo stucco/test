@@ -11,7 +11,7 @@ sudo chmod 4777 $STUCCO_HOME
 
 ### Download the repositories
 cd $STUCCO_HOME
-repos="ontology config-loader rt collectors document-service endogenous-data-uc1 get-exogenous-data"
+repos="ontology config-loader rt collectors document-service get-exogenous-data"
 for repo in $repos; do
   IFS=" "
   echo "cloning ${repo}"
@@ -24,8 +24,11 @@ cp /home/travis/build/stucco/test/sites.yml $STUCCO_HOME/get-exogenous-data/site
 cd $STUCCO_HOME/get-exogenous-data
 npm start
 
+#Move the NVD test data in with the rest of the exogenous data
+cp /home/travis/build/stucco/test/nvdcve-test.xml $STUCCO_HOME/get-exogenous-data/data/nvdcve-2.0-2013.xml 
+
 # Move endogenous data into data dir
-cd $STUCCO_HOME/endogenous-data-uc1
+#cd $STUCCO_HOME/endogenous-data-uc1
 
 # Load configuration into etcd
 cd $STUCCO_HOME/config-loader
