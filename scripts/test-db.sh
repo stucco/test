@@ -1,13 +1,10 @@
 #!/bin/sh
 
 #install jq
-#wget https://stedolan.github.io/jq/download/linux64/jq
-#chmod a+x jq
-#sudo mv jq /usr/local/bin
-
-#actually, need to build from source, so we have the -e option available.  can change back after version bump.
-git clone https://github.com/stedolan/jq.git
-cd jq
+# using 1.4, which is recent and added the -e option we're using.
+wget https://github.com/stedolan/jq/archive/jq-1.4.zip
+unzip jq-1.4.zip
+cd jq-jq-1.4
 autoreconf -i
 ./configure
 make -j8
