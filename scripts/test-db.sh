@@ -21,14 +21,13 @@ rabbitmqctl list_exchanges
 echo "!!! /var/log/doc-service-forever.log !!!"
 cat /var/log/doc-service-forever.log
 
-echo "!!! ls -al /stucco/rt/stucco-topology !!!"
-ls -al /stucco/rt/stucco-topology
+echo "!!! ls -al /stucco/rt/streaming-processor !!!"
+ls -al /stucco/rt/streaming-processor
 
-echo "!!! /stucco/rt/stucco-topology/stucco-rt.log !!!"
-cat /stucco/rt/stucco-topology/stucco-rt.log
-
-echo "!!! /stucco/rt/stucco-topology/stucco-rt-errors.log !!!"
-cat /stucco/rt/stucco-topology/stucco-rt-errors.log
+#TODO: This log can get HUGE, but hoping it won't here due to the small test dataset
+# if it's a problem, we may want to split all this debug output into its own script so that it will be collapsable
+echo "!!! /stucco/rt/streaming-processor/supervisord.log !!!"
+cat /stucco/rt/streaming-processor/supervisord.log
 
 curl 'http://localhost:8182/graphs' > graphs.out
 # {"version":"2.4.0","name":"Rexster: A Graph Server","graphs":["graph"],"queryTime":20.218999,"upTime":"0[d]:00[h]:15[m]:11[s]"}

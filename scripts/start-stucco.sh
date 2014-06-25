@@ -3,12 +3,13 @@
 ### Start Stucco Components
 STUCCO_HOME=/stucco
 
-# Start rt (Storm topology)
+# Start rt (streaming-processor)
 RT_DIR=${STUCCO_HOME}/rt
 if [ -d ${RT_DIR} ]; then
-  echo 'Starting rt storm topology...'
-  cd ${RT_DIR}/stucco-topology
-  nohup mvn exec:java &
+  echo 'Starting rt streaming processor...'
+  cd ${RT_DIR}/streaming-processor
+  mvn clean package
+  supervisord -c target/classes/supervisord.conf &
 else
   echo 'The rt repository is not available. Do a `git clone https://github.com/stucco/rt.git` into the main stucco project directory and it will be available in the virtual machine, mounted under /stucco'
 fi
@@ -24,7 +25,8 @@ else
 fi
 
 echo 'waiting for stucco startup to finish...'
-sleep 3m
+sleep 1m
 
-echo "!!! cat ${RT_DIR}/stucco-topology/nohup.out !!!"
-cat ${RT_DIR}/stucco-topology/nohup.out
+#TODO is this output still useful?
+echo "!!! /stucco/rt/streaming-processor/supervisord.log !!!"
+cat /stucco/rt/streaming-processor/supervisord.log
