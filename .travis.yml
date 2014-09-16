@@ -13,7 +13,7 @@ before_install:
 install:
   - npm install -g forever #node is installed by default, but cannot specify the version in this file.
   - ./scripts/install_etcd.sh
-  - sudo ./scripts/install-titan.sh 0.4.4 localhost
+  - sudo ./scripts/install-titan.sh 0.5.0 localhost
 before_script:
   - sudo ./scripts/setup-stucco.sh
   - sudo ./scripts/setup-config.sh
