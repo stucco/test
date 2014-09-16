@@ -18,10 +18,9 @@
 # Install [Titan](http://thinkaurelius.github.io/titan/)
 
 # Argument is the version to install, or default value
-VERSION=${1:-'0.4.2'}
+VERSION=${1:-'0.5.0'}
 IP=${2:-'10.10.10.100'}
-BACKEND=server  #"server" includes rexter, cassandra, and all other backend/indexing support
-TITAN=titan-${BACKEND}-${VERSION}
+TITAN=titan-${VERSION}-hadoop2
 
 if [ ! -d /usr/local/${TITAN} ]; then 
   echo "Installing Titan ${VERSION}..."
