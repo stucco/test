@@ -22,3 +22,5 @@ before_script:
 script:
   - sudo ./scripts/run-stucco-tests.sh
   - sudo ./scripts/test-db.sh
+notifications:
+  slack: sava:lB0VBcWKom3VNlr126hyI04E
